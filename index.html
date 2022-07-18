@@ -9,14 +9,17 @@
     <script src='main.js' type='text/javascript' defer></script>
 </head>
 <body>
-    <main>
-        <select>
+    <select>
             <option value="uno">sha256</option>
             <option value="dos">md5</option>
         </select>
+    <main>
+        <a>Encriptado</a>
+        
         <form id="cifrador" autocomplete="off">
             <input id="input-original" spellcheck="false" placeholder="Ingresar texto" type="text" name="text">
         </form>
+        <div id="resultado"></div>
         <div class="rango">
             <input id="rango" type="range" value="10" min="1" max="26" oninput="this.nextElementSibling.value = this.value">
             <output>10</output>
