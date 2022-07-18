@@ -3,13 +3,24 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Pablo Alejandro Vidal Page</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='styles.css'>
-    <script src='main.js'></script>
-    
+    <title>Encrypt</title>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js' type='text/javascript' defer></script>
 </head>
 <body>
-    <a>Bienvenidos</a>
+    <main>
+        <select>
+            <option value="uno">sha256</option>
+            <option value="dos">md5</option>
+        </select>
+        <form id="cifrador" autocomplete="off">
+            <input id="input-original" spellcheck="false" placeholder="Ingresar texto" type="text" name="text">
+        </form>
+        <div class="rango">
+            <input id="rango" type="range" value="10" min="1" max="26" oninput="this.nextElementSibling.value = this.value">
+            <output>10</output>
+        </div>
+    </main>
 </body>
 </html>
