@@ -4,9 +4,8 @@ const cifrador = document.getElementById('cifrador');
 const resultado = document.getElementById('resultado');
 const rango = document.getElementById('rango');
 const cifradoTitle = document.getElementById('cifradoTitle');
-const cifradoTipo = document.getElementById('cifradoTipo').value;
+const cifradoTipo = document.getElementById('cifradoTipo');
 
-cifradoTitle.textContent = cifradoTipo;
 
 const shiftMessage = () => {
     const wordArray = [...inputOriginal.value.toUpperCase()];
@@ -23,6 +22,10 @@ const printChar = (currentLetterIndex, wordArray) => {
         alfabeto[(alfabeto.indexOf(charSinCodificar) + parseInt(rango.value)) % alfabeto.length] :
         charSinCodificar
     printChar(currentLetterIndex + 1, wordArray);
+}
+
+cifradoTipo.onclick = function() {
+    cifradoTitle.textContent = cifradoTipo[cifradoTipo.selectedIndex].value;
 }
 
 const submit = e => {
