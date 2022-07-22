@@ -3,10 +3,6 @@ const inputOriginal = document.getElementById('input-original');
 const cifrador = document.getElementById('cifrador');
 const resultado = document.getElementById('resultado');
 const rango = document.getElementById('rango');
-const cifradoTitle = document.getElementById('cifradoTitle');
-const cifradoTipo = document.getElementById('cifradoTipo').value;
-
-cifradoTitle.textContent = cifradoTipo;
 
 const shiftMessage = () => {
     const wordArray = [...inputOriginal.value.toUpperCase()];
