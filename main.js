@@ -6,20 +6,22 @@ const rango = document.getElementById('rango');
 
 const shiftMessage = () => {
     const wordArray = [...inputOriginal.value.toUpperCase()];
-    printChar(0, wordArray);
+    if(wordArray != 0){
+        printChar(wordArray);
+    }
 }
 
-const printChar = (currentLetterIndex, wordArray) => {
-    if(wordArray.length === currentLetterIndex) return;
-    inputOriginal.value = inputOriginal.value.substring(1);
-    const spanChar = document.createElement("span");
-    resultado.appendChild(spanChar);
-    const charSinCodificar = wordArray[currentLetterIndex];
-    spanChar.innerHTML = alfabeto.includes(charSinCodificar) ?
-        alfabeto[(alfabeto.indexOf(charSinCodificar) + parseInt(rango.value)) % alfabeto.length] :
-        charSinCodificar
-    printChar(currentLetterIndex + 1, wordArray);
+const printChar = (wordArray) => {
+    len = wordArray.length;
+    spanChar = resultado.appendChild(document.createElement("a"));
+    for(i=0;i<len;i++){
+        charSinCodificar = wordArray[i];
+        alfabeto.includes(charSinCodificar) ?
+        spanChar.innerHTML += alfabeto[(alfabeto.indexOf(charSinCodificar) + parseInt(rango.value)) % alfabeto.length] :
+        spanChar.innerHTML += charSinCodificar;
+    }
 }
+
 
 const submit = e => {
     e.preventDefault();
@@ -28,3 +30,12 @@ const submit = e => {
 }
 
 cifrador.onsubmit = submit;
+
+inputOriginal.addEventListener("keyup", () => {
+    resultado.innerHTML = '';
+    shiftMessage();
+});
+rango.addEventListener("mousemove", () => {
+    resultado.innerHTML = '';
+    shiftMessage();
+});
